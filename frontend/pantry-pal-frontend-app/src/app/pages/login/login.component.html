@@ -1,0 +1,40 @@
+<div class ="wrapper1">
+<div class="wrapper">
+    <h2>Login</h2>
+    <form   [formGroup]="loginForm" (ngSubmit)="login()">
+      <div class="input-box">
+        <input formControlName="email"  type="text" placeholder="Enter your email" required pattern=".*@umich\.edu">
+      </div>
+      <div *ngIf="loginForm.controls['email'].errors?.['pattern']">
+        Email must be a umich.edu email.
+      </div>
+      <div *ngIf="loginForm.controls['email'].errors?.['required']">
+        Email is required. 
+      </div>
+      <div class="input-box">
+        <input formControlName="userPasswd" type="password" placeholder="Enter password" required>
+      </div>
+     
+      <!-- <div class="policy">
+        <input type="checkbox">
+        
+      </div> -->
+      <div class ="policy">
+      Select your Role
+    </div>
+      <div class ="input-box">
+       
+        <select formControlName="userrole"  name="Role">
+            <option value="STUDENT">Student</option>
+            <option value="ADMIN">Admin</option>
+          </select>
+      </div>
+      <div class="input-box button">
+        <input type="Submit" value="Login">
+      </div>
+      <div class="text">
+        <h3>Don't have an account? <a routerLink="/register">Register Here</a></h3>
+      </div>
+    </form>
+  </div>
+</div>

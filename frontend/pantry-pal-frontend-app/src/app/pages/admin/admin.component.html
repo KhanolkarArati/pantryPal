@@ -1,0 +1,70 @@
+<app-menu></app-menu>
+<div class="admin-container">
+    <h1>Product Management</h1>
+    <button (click)="openAddProductModal()">Add Product</button>
+
+    <div class="product-list">
+      <div class="product-item" *ngFor="let product of products">
+        <h3>{{ product.productName }}</h3>
+        <p>Quantity: {{ product.productQuantity }}</p>
+        <p>Expiry Date: {{ product.productExpiryDate }}</p>
+        <div class="product-actions">
+          <button class="action-button update-button" (click)="openUpdateProductDialog(product)">Update</button>
+          <button class="action-button delete-button" (click)="deleteProduct(product.productId)">Delete</button>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="modal" [class.show-modal]="showModal">
+            <div class="modal-content">
+              <span class="close" (click)="closeModal()">&times;</span>
+              <h2>Update Product</h2>
+              <label for="productName">Product Name:</label>
+              <input type="text" id="productName" [(ngModel)]="updatedProduct.productName">
+              <label for="productQuantity">Quantity:</label>
+              <input type="number" id="productQuantity" [(ngModel)]="updatedProduct.productQuantity">
+              <label for="productExpiryDate">Expiry Date:</label>
+              <input type="text" id="productExpiryDate" [(ngModel)]="updatedProduct.productExpiryDate" placeholder="DD-MM-YYYY">
+              <label for="productImageURL">Product Image URL :</label>
+              <input type="text" id="productImageURL" [(ngModel)]="updatedProduct.productImageURL">
+              <div>
+                
+              </div>
+              <button (click)="updateProduct()">Save</button>
+            </div>
+
+
+
+  </div>
+
+  <div id="addProductModal" class="modal" [ngStyle]="{ display: modalVisible ? 'block' : 'none' }">
+    <div class="modal-content">
+      <span class="close" (click)="closeAddProductModal()">&times;</span>
+      <h2>Add Product</h2>
+      <form  #productForm="ngForm" id="addProductForm">
+        <div class="form-group">
+          <label for="productName">Product Name:</label>
+          <input type="text" id="productName" name="productName" class="form-control" placeholder="Product Name" required [(ngModel)]="name">
+        </div>
+        <div class="form-group">
+          <label for="productQuantity">Quantity:</label>
+          <input type="number" id="productQuantity" name="productQuantity" class="form-control" placeholder="Quantity" required [(ngModel)]="qty">
+        </div>
+        <div class="form-group">
+          <label for="productExpiryDate">Expiry Date:</label>
+          <input type="text" id="productExpiryDate" name="productExpiryDate" class="form-control" placeholder="YYYY-MM-DD" required [(ngModel)]="exp">
+        </div>
+        <div class="form-group">
+          <label for="productImageURL">Image URL:</label>
+          <input type="text" id="productImageURL" name="productImageURL" class="form-control" placeholder="Image URL" [(ngModel)]="url">
+        </div>
+        <div class="form-group">
+          <button type="button" class="btn btn-primary" (click)="addProduct()">Add</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  
+  

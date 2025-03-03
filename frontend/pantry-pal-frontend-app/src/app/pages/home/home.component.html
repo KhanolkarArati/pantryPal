@@ -1,0 +1,49 @@
+<app-menu></app-menu>
+<section id="product">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="productHeading text-center">
+                    <h2 class="mb-3">Available Products</h2> 
+              
+                </div>
+            </div>
+            <!-- <div  *ngIf="!isAdminUser"class="col-12">
+                <div>Total Items in Cart ::->  {{receivedData}}</div>
+            </div> -->
+            <div class="col-12">
+                <div class="row mt-3">
+                    <div class="col-lg-3 pt-1" *ngFor="let product of productList">
+                        <div class="box-shadow">
+                            <div class="card">
+                                <img class="img-fluid" style="height: 200px;" [src]=product.productImageURL class="card-img-top"
+                                    alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{product.productName}}</h5>                                    
+                                    <p class="card-text">
+                                        <span class="text-danger fw-semibold me-2">Available Quantity :</span>
+                                            <!-- <del> ${{product.productQuantity}}</del> -->
+                                        <span class="text-success ms-2">{{product.productQuantity}}</span></p>
+                                     
+                                    <div *ngIf="!isAdminUser" class="row">
+                                        <!-- <div class="col-6">
+                                            <i class="fa-solid fa-star-half-stroke  m-0"
+                                                style="color: #f1f50f;"></i> 
+                                                <span class="text-muted">(21)</span>
+                                        </div> -->
+                                        <!-- <div class="col-6 text-end"> -->
+                                            <!-- user_id: any, product_id -->
+                                            <button class="btn btn-sm btn-success" (click)="addItemToCart(product.productId, 1)"> Add To Cart</button>
+                                        <!-- </div> -->
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
