@@ -43,6 +43,11 @@
 			<version>2.0.2</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.h2database</groupId>
+				<artifactId>h2</artifactId>
+				<scope>test</scope>  <!-- Ensure this is only for test scope -->
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

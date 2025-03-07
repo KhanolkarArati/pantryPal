@@ -6,6 +6,7 @@ import org.springframework.test.context.ActiveProfiles;
 
 @SpringBootTest
 @ActiveProfiles("test")  // Ensures all tests use application-test.properties
+//@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
 class StudentPantryManagementApplicationTests {
 
     @Test
