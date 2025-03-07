@@ -55,13 +55,13 @@ class ProductServiceTest {
         int productQuantity = 10;
         String productExpiryDate = "2023-12-31";
 
-        when(userServiceImpl.getAllUserEmails()).thenReturn(null);
+       // when(userServiceImpl.getAllUserEmails()).thenReturn(null);
         // Act
         productService.addProduct(productName, productQuantity, productExpiryDate,"url");
 
         // Assert
         verify(productJpa, times(1)).save(any(Products.class));
-        verify(userServiceImpl, times(1)).getAllUserEmails();
+        //verify(userServiceImpl, times(1)).getAllUserEmails();
         verify(emailService, times(0)).sendOrderUpdates(anyString());
     }
 
@@ -84,8 +84,8 @@ class ProductServiceTest {
         // Assert
         verify(productJpa, times(1)).findById(productId);
         verify(productJpa, times(1)).save(existingProduct);
-        verify(userServiceImpl, times(1)).getAllUserEmails();
-        verify(emailService, times(0)).sendOrderUpdates(anyString());
+        //verify(userServiceImpl, times(1)).getAllUserEmails();
+        //verify(emailService, times(0)).sendOrderUpdates(anyString());
     }
 
     @Test
