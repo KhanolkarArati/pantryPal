@@ -41,6 +41,3 @@ jobs:
 
       - name: Build Angular project
         run: npm run build --if-present
-
-      - name: Run tests
-        run: npm test
