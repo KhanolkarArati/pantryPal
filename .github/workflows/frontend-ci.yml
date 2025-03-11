@@ -41,3 +41,13 @@ jobs:
 
       - name: Build Angular project
         run: npm run build --if-present
+
+      - name: Run unit tests with coverage
+        run: npm run test -- --watch=false --code-coverage --browsers=ChromeHeadless
+        env:
+          CHROME_BIN: /usr/bin/google-chrome-stable
+
+      - name: Upload code coverage report to GitHub (optional)
+        uses: codecov/codecov-action@v3
+        with:
+          file: ./coverage/*.json  
