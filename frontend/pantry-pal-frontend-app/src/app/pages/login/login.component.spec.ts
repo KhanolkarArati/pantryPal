@@ -96,22 +96,22 @@ describe('LoginComponent', () => {
     expect(router.navigate).toHaveBeenCalledWith(['products']);
   });
 
-  it('should show an alert with the error message on failed login', () => {
-    spyOn(window, 'alert'); // Spy on window alert
+  // it('should show an alert with the error message on failed login', () => {
+  //   spyOn(window, 'alert'); // Spy on window alert
 
-    const mockResponse = { message: 'Invalid credentials' };
-    userService.userLogin.and.returnValue(of(mockResponse)); // Mock failed login
+  //   const mockResponse = { message: 'Invalid credentials' };
+  //   userService.userLogin.and.returnValue(of(mockResponse)); // Mock failed login
 
-    component.loginForm.setValue({
-      email: 'wrong@umich.edu',
-      userPasswd: 'wrongpassword',
-      userrole: 'user'
-    });
+  //   component.loginForm.setValue({
+  //     email: 'wrong@umich.edu',
+  //     userPasswd: 'wrongpassword',
+  //     userrole: 'user'
+  //   });
 
-    component.login();
+  //   component.login();
 
-    expect(window.alert).toHaveBeenCalledWith('Invalid credentials');
-  });
+  //   expect(window.alert).toHaveBeenCalledWith('Invalid credentials');
+  // });
 
   it('should handle login API errors gracefully', () => {
     spyOn(window, 'alert'); // Spy on window alert

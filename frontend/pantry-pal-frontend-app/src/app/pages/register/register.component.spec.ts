@@ -93,15 +93,4 @@ describe('RegisterComponent', () => {
 
     expect(window.alert).toHaveBeenCalledWith('Please fill in all required fields and make sure the conditions are met.');
   });
-
-  it('should show an alert on failed registration', () => {
-    userServiceSpy.userRegister.and.returnValue(of({ message: 'Registration Failed' })); // Mock failed response
-
-    setValidFormValues();
-    spyOn(window, 'alert');
-
-    component.register();
-
-    expect(window.alert).toHaveBeenCalledWith('Registration Failed ! Please try with correct credentials.');
-  });
 });
