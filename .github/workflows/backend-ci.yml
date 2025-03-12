@@ -41,7 +41,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: test-report
-          path: backend/studentPantry/surefire-reports/*.html
+          path: backend/studentPantry/target/surefire-reports/*.html
 
 
       - name: Send Test Report via Email
@@ -51,7 +51,7 @@ jobs:
           smtp-port: 587
           smtp-username: ${{ secrets.GMAIL_USERNAME }}
           smtp-password: ${{ secrets.GMAIL_APP_PASSWORD }}
-          to: recipient@example.com
+          to: soumyasv@umich.edu
           subject: "Test Report"
           body: "Please find the attached test report."
           attachments: backend/studentPantry/target/surefire-reports/*.html
