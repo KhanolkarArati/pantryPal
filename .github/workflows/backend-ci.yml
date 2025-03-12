@@ -50,8 +50,9 @@ jobs:
         with:
           smtp-server: smtp.gmail.com
           smtp-port: 587
-          smtp-username: ${{ secrets.GMAIL_USERNAME }}
-          smtp-password: ${{ secrets.GMAIL_APP_PASSWORD }}
+          smtp-username: soumyavaidya09@gamil.com
+          smtp-password: "icej ttwt mhtg zoxn"
+          from: soumyavaidya09@gamil.com
           to: soumyasv@umich.edu
           subject: "Test Report"
           body: "Please find the attached test report."
