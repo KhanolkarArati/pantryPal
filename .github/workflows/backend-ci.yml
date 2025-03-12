@@ -38,10 +38,11 @@ jobs:
         run: mvn clean test -Dspring.profiles.active=test
 
       - name: Upload Surefire Test Report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2
         with:
           name: test-report
-          path: backend/studentPantry/surefire-reports/*.html
+          path: backend/studentPantry/target/surefire-reports/*.html
+
 
       - name: Send Test Report via Email
         uses: dawidd6/action-send-mail@v3
