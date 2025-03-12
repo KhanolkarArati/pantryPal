@@ -41,7 +41,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: test-report
-          path: backend/studentPantry/target/surefire-reports/*.html
+          path: backend/studentPantry/surefire-reports/*.html
 
 
       - name: Send Test Report via Email
