@@ -14,7 +14,8 @@ The motivation behind this project arises from the need to address several chall
 
 ### 3. Expected Contributions (Solution) and Applicable Architecture and Design Pattern Uses
 - **Sophisticated Software Architecture:** Implement a sophisticated multi-tier web application architecture that ensures scalability, robustness, and maintainability.
-- **Design Patterns:** Incorporate well-established design patterns such as Singleton, Observer, and Abstract Factory Design Pattern to enhance system efficiency and maintainability.
+- **Design Patterns:** Incorporate well-established design patterns such as Singleton, Observer, and Abstract Factory Design Pattern to enhance system efficiency and 
+    maintainability.
 - **API-Driven Approach:** Develop a robust API-driven system, allowing for easy integration with other systems and potential future enhancements.
 - **User-Friendly Interface:** Create a user-friendly web interface that allows students to easily browse, order, and manage pantry items.
 - **Role Management:** Involves creating a multiuser system that leverages data encapsulation to define and enforce user roles, access control, and data isolation, ensuring both security and streamlined operations within our application.
