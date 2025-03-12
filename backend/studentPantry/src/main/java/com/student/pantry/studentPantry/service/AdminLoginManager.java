@@ -29,7 +29,6 @@ public class AdminLoginManager {
             if (userDto.getUserrole().equals(UserRole.ADMIN)) {
                 adminCount = 1;
             }
-
             return true;
         }
     }
