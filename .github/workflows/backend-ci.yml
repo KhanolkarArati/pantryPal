@@ -35,15 +35,15 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Build and Test with Maven
-        run: mvn clean test -Dspring.profiles.active=test
+      - name: Build, Test, and Generate Report with Maven
+        run: mvn clean verify -Dspring.profiles.active=test
 
       - name: Upload Surefire Test Report
         uses: actions/upload-artifact@v4
         with:
           name: test-report
-          path: backend/studentPantry/target/surefire-reports/*.html
-
+          path: backend/studentPantry/target/site/surefire-report.html
+          if-no-files-found: error
 
       - name: Send Test Report via Email
         uses: dawidd6/action-send-mail@v3
@@ -55,4 +55,4 @@ jobs:
           to: soumyasv@umich.edu
           subject: "Test Report"
           body: "Please find the attached test report."
-          attachments: backend/studentPantry/target/surefire-reports/*.html
+          attachments: backend/studentPantry/target/site/surefire-report.html
