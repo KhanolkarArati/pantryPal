@@ -59,8 +59,3 @@ jobs:
           --output=html \
           --output-path=frontend/pantry-pal-frontend-app/src/tests/reports/accessibility-report.html
 
-      - name: Upload Lighthouse Report as Artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: lighthouse-report
-          path: frontend/pantry-pal-frontend-app/src/app/tests/reports/accessibility-report.html
