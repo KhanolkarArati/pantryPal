@@ -57,6 +57,8 @@ jobs:
           npx lighthouse http://localhost:4200 \
           --only-categories=accessibility \
           --output=html \
-          --output-path=./accessibility-report.html
+          --output-path=./lighthouse-report.html \
+          --chrome-flags="--headless --no-sandbox"
+
 
 
