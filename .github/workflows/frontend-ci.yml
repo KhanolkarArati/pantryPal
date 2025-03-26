@@ -51,3 +51,14 @@ jobs:
         uses: codecov/codecov-action@v3
         with:
           file: ./coverage/*.json  
+
+      - name: Run Lighthouse Accessibility Audit
+        run: |
+          npx lighthouse http://localhost:4200 \
+          --only-categories=accessibility \
+          --output=html \
+          --output-path=./lighthouse-report.html \
+          --chrome-flags="--headless --no-sandbox"
+
+
+
