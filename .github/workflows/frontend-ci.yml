@@ -52,10 +52,6 @@ jobs:
         with:
           file: ./coverage/*.json  
 
-      - name: Test File Write
-        run: echo "test" > frontend/pantry-pal-frontend-app/src/tests/reports/test-file.txt
-
-
       - name: Run Lighthouse Accessibility Audit
         run: |
           npx lighthouse http://localhost:4200 \
