@@ -1,0 +1,11 @@
+{
+    "ci": {
+      "collect": {
+        "staticDistDir": "./dist/pantry-pal-frontend-app"
+      },
+      "upload": {
+        "target": "temporary-public-storage"
+      }
+    }
+  }
+  

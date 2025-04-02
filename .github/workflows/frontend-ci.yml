@@ -52,7 +52,7 @@ jobs:
         with:
           file: ./coverage/*.json  
       
-      - name: run Lighthouse CI
+      - name: Run Lighthouse CI
         run: |
           npm install -g @lhci/cli
           lhci autorun
