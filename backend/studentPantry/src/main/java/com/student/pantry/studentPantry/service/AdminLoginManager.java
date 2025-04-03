@@ -38,5 +38,9 @@ public class AdminLoginManager {
             adminCount=0;
         
     }
+
+    public static void resetInstance() {
+        instance = null; // This will allow getInstance() to create a new instance
+    }
 }
 

@@ -5,13 +5,22 @@ import java.util.Objects;
 public class AdminUserDto extends UserDto {
     private Long adminId;
 
+    // Default constructor
     public AdminUserDto() {
     }
 
+    // Constructor that takes only adminId (existing constructor)
     public AdminUserDto(Long adminId) {
         this.adminId = adminId;
     }
 
+    // New constructor with userRole, username, email, and adminId
+    public AdminUserDto(String userRole, String username, String email, Long adminId) {
+    super(username, email, UserRole.valueOf(userRole)); // Call the new UserDto constructor
+    this.adminId = adminId;
+}
+
+    // Getters and Setters
     public Long getAdminId() {
         return adminId;
     }
@@ -20,6 +29,7 @@ public class AdminUserDto extends UserDto {
         this.adminId = adminId;
     }
 
+    // Equals and hashCode methods
     public boolean equals(Object object) {
         if (this == object) return true;
         if (!(object instanceof AdminUserDto)) return false;
@@ -32,8 +42,9 @@ public class AdminUserDto extends UserDto {
         return Objects.hash(super.hashCode(), getAdminId());
     }
 
-    @java.lang.Override
-    public java.lang.String toString() {
+    // toString method
+    @Override
+    public String toString() {
         return "AdminDTO{" +
                 "adminId=" + adminId +
                 '}';
