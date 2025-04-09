@@ -1,2 +1,5 @@
+com\student\pantry\studentPantry\UpdateProductTest.class
+com\student\pantry\studentPantry\AddProductTest.class
 LoginPageTest.class
+com\student\pantry\studentPantry\DeleteProductTest.class
 RegistrationPageTest.class
