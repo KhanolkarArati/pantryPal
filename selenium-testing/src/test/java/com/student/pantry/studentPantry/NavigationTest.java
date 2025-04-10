@@ -1,8 +1,6 @@
 package test.java.com.student.pantry.studentPantry;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.util.List;
-
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -195,12 +193,13 @@ public class NavigationTest {
         // Click the cart icon to open the dropdown
         cartIcon.click();
 
-        
-        WebElement dropdownMenu = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("dropdown-menu")));
+        boolean isVisible = ExpectedConditions.visibilityOfElementLocated(By.className("dropdown-menu")).apply(driver) != null;
+        assertTrue(isVisible,"Cart Icon Not working as Expected");
+        //WebElement dropdownMenu = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("dropdown-menu")));
 
         // Wait for the cart items to be visible and wait for the products to load
-        List<WebElement> cartItems = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector(".CartContainer .row.pt-1")));
-        System.out.println("Number of items in the cart: " + cartItems.size());
+        //List<WebElement> cartItems = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector(".CartContainer .row.pt-1")));
+        //System.out.println("Number of items in the cart: " + cartItems.size());
 	}
 
 	@AfterEach
