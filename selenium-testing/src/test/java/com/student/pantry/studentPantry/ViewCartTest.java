@@ -18,7 +18,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class ViewCart {
+public class ViewCartTest {
     private WebDriver driver;
 
 	@BeforeEach

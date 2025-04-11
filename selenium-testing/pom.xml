@@ -18,6 +18,7 @@
     <properties>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
+        <maven.build.timestamp.format>yyyyMMdd-HHmmss</maven.build.timestamp.format>
     </properties>
 
     <dependencies>
@@ -53,6 +54,23 @@
             <artifactId>selenium-chrome-driver</artifactId>
             <version>3.141.59</version> <!-- Ensure this matches the selenium-java version -->
         </dependency>
+        <dependency>
+        <groupId>com.aventstack</groupId>
+        <artifactId>extentreports</artifactId>
+        <version>5.1.1</version>
+    </dependency>
+         <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>2.11.0</version>
+    </dependency>
+    <dependency>
+    <groupId>org.testng</groupId>
+    <artifactId>testng</artifactId>
+    <version>7.7.0</version> <!-- Use the latest stable version -->
+    <scope>test</scope>
+</dependency>
+
 
     </dependencies>
 
@@ -83,5 +101,18 @@
 
         </plugins>
     </build>
+    <reporting>
+  <plugins>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-surefire-report-plugin</artifactId>
+      <version>3.1.2</version>
+      <configuration>
+        <outputDirectory>${project.basedir}/reports/${maven.build.timestamp}</outputDirectory>
+      </configuration>
+    </plugin>
+  </plugins>
+</reporting>
+
 
 </project>

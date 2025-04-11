@@ -1,4 +1,4 @@
-package test.java.com.student.pantry.studentPantry;
+package com.student.pantry.studentPantry;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.AfterEach;
@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-public class NavigationTest {
+public class NavigationTest  {
 
 	private WebDriver driver;
 
