@@ -1,13 +1,22 @@
-import org.junit.jupiter.api.*;
-import org.openqa.selenium.*;
+package com.student.pantry.studentPantry;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoAlertPresentException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import java.time.Duration;
 
-import static org.junit.jupiter.api.Assertions.*;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class LoginPageTest {
 
@@ -139,6 +148,12 @@ public class LoginPageTest {
         wait.until(ExpectedConditions.urlContains("/products"));
         String currentUrl = driver.getCurrentUrl();
         assertTrue(currentUrl.contains("/products"), "User should be redirected to products after login.");
+        
+        // Now click logout
+ 		WebElement logoutButton = wait
+ 				.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a[href='/login']")));
+ 		logoutButton.click();	
+        
         } 
         else if (alertText.equals("Only one admin login allowed at a time")) {
         String currentUrl = driver.getCurrentUrl();

@@ -1,4 +1,4 @@
-package test.java.com.student.pantry.studentPantry;
+package com.student.pantry.studentPantry;
 
 
 import java.io.File;
