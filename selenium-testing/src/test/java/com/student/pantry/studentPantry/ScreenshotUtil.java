@@ -13,6 +13,7 @@ public class ScreenshotUtil {
             File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
             String path = "screenshots/" + testName + "_" + System.currentTimeMillis() + ".png";
             File dest = new File(path);
+            dest.getParentFile().mkdirs(); // Ensure the screenshots/ dir exists
             FileUtils.copyFile(src, dest);
             return path;
         } catch (IOException e) {
