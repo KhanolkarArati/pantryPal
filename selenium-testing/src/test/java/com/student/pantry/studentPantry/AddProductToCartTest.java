@@ -15,6 +15,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import com.student.pantry.studentPantry.ScreenshotUtil;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -73,7 +74,64 @@ public class AddProductToCartTest{
             logoutButton.click();
         
     }
+    @Test
+    public void testInvalidItemsInPantry() {
 
+            // Step 1: Open login page as session needs to be validated
+            driver.get("http://localhost:4200/login");
+
+            // Step 2: Enter email and password
+            driver.findElement(By.cssSelector("input[placeholder='Enter your email']")).sendKeys("test@umich.edu");
+            driver.findElement(By.cssSelector("input[placeholder='Enter password']")).sendKeys("qwertY");
+
+            // Step 3: Select role from dropdown
+            Select roleDropdown = new Select(driver.findElement(By.tagName("select")));
+            roleDropdown.selectByVisibleText("Student");
+
+            // Step 4: Wait for the login button to be clickable and then click
+            WebDriverWait wait = new WebDriverWait(driver, 30);
+            WebElement loginButton = wait
+                    .until(ExpectedConditions.elementToBeClickable(By.cssSelector("input[type='submit']")));
+            loginButton.click();
+
+            // Step 5: Handle Alert (Authenticated Successfully)
+            Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+            String alertText = alert.getText().trim();
+
+            assertTrue(
+                    alertText.equals("Authenticated Successfully.")
+                            || alertText.equals("Only one admin login allowed at a time"),
+                    "Unexpected alert message: " + alertText);
+
+            alert.accept();
+
+            // Step 6: Wait for /products page
+            wait.until(ExpectedConditions.urlContains("/products"));
+
+            List<WebElement> productCards = driver.findElements(By.cssSelector(".col-lg-3.pt-1"));
+            for (WebElement card : productCards) {
+                WebElement quantityElement = card.findElement(By.cssSelector(".text-success.ms-2"));
+                int quantity = Integer.parseInt(quantityElement.getText().trim());
+
+                // Check if "Add To Cart" is visible for this item
+                List<WebElement> addToCartButtons = card.findElements(By.xpath(".//button[contains(text(),'Add To Cart')]"));
+
+                // If quantity is zero or less, button should NOT be visible
+                if (quantity <= 0) {
+                    ScreenshotUtil.captureScreenshot(driver, "TestAddProductToCart");
+                    assertTrue(addToCartButtons.isEmpty(), "Product with quantity " + quantity + " should not have 'Add To Cart' button.");
+                    
+                } else {
+                    assertFalse(addToCartButtons.isEmpty(), "Product with quantity " + quantity + " should have 'Add To Cart' button.");
+                }
+            }
+
+            // logout for admin and end session
+            WebElement logoutButton = wait
+                    .until(ExpectedConditions.elementToBeClickable(By.cssSelector("a[href='/login']")));
+            logoutButton.click();
+        
+    }
     @Test
     public void testAddToCartProduct() {
       
@@ -129,62 +187,7 @@ public class AddProductToCartTest{
             logoutButton.click();
         } 
 
-    @Test
-    public void testInvalidItemsInPantry() {
-
-            // Step 1: Open login page as session needs to be validated
-            driver.get("http://localhost:4200/login");
-
-            // Step 2: Enter email and password
-            driver.findElement(By.cssSelector("input[placeholder='Enter your email']")).sendKeys("test@umich.edu");
-            driver.findElement(By.cssSelector("input[placeholder='Enter password']")).sendKeys("qwertY");
-
-            // Step 3: Select role from dropdown
-            Select roleDropdown = new Select(driver.findElement(By.tagName("select")));
-            roleDropdown.selectByVisibleText("Student");
-
-            // Step 4: Wait for the login button to be clickable and then click
-            WebDriverWait wait = new WebDriverWait(driver, 30);
-            WebElement loginButton = wait
-                    .until(ExpectedConditions.elementToBeClickable(By.cssSelector("input[type='submit']")));
-            loginButton.click();
-
-            // Step 5: Handle Alert (Authenticated Successfully)
-            Alert alert = wait.until(ExpectedConditions.alertIsPresent());
-            String alertText = alert.getText().trim();
-
-            assertTrue(
-                    alertText.equals("Authenticated Successfully.")
-                            || alertText.equals("Only one admin login allowed at a time"),
-                    "Unexpected alert message: " + alertText);
-
-            alert.accept();
-
-            // Step 6: Wait for /products page
-            wait.until(ExpectedConditions.urlContains("/products"));
-
-            List<WebElement> productCards = driver.findElements(By.cssSelector(".col-lg-3.pt-1"));
-            for (WebElement card : productCards) {
-                WebElement quantityElement = card.findElement(By.cssSelector(".text-success.ms-2"));
-                int quantity = Integer.parseInt(quantityElement.getText().trim());
-
-                // Check if "Add To Cart" is visible for this item
-                List<WebElement> addToCartButtons = card.findElements(By.xpath(".//button[contains(text(),'Add To Cart')]"));
-
-                // If quantity is zero or less, button should NOT be visible
-                if (quantity <= 0) {
-                    assertTrue(addToCartButtons.isEmpty(), "Product with quantity " + quantity + " should not have 'Add To Cart' button.");
-                } else {
-                    assertFalse(addToCartButtons.isEmpty(), "Product with quantity " + quantity + " should have 'Add To Cart' button.");
-                }
-            }
-
-            // logout for admin and end session
-            WebElement logoutButton = wait
-                    .until(ExpectedConditions.elementToBeClickable(By.cssSelector("a[href='/login']")));
-            logoutButton.click();
-        
-    }
+    
 
     @AfterEach
     public void tearDown() {
