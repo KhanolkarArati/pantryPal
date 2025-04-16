@@ -37,7 +37,7 @@ public class AddProductToCartTest{
             driver.get("http://localhost:4200/login");
 
             // Step 2: Enter email and password
-            driver.findElement(By.cssSelector("input[placeholder='Enter your email']")).sendKeys("test@umich.edu");
+            driver.findElement(By.cssSelector("input[placeholder='Enter your email']")).sendKeys("student@umich.edu");
             driver.findElement(By.cssSelector("input[placeholder='Enter password']")).sendKeys("qwertY");
 
             // Step 3: Select role from dropdown
@@ -81,7 +81,7 @@ public class AddProductToCartTest{
             driver.get("http://localhost:4200/login");
 
             // Step 2: Enter email and password
-            driver.findElement(By.cssSelector("input[placeholder='Enter your email']")).sendKeys("test@umich.edu");
+            driver.findElement(By.cssSelector("input[placeholder='Enter your email']")).sendKeys("student@umich.edu");
             driver.findElement(By.cssSelector("input[placeholder='Enter password']")).sendKeys("qwertY");
 
             // Step 3: Select role from dropdown
@@ -139,7 +139,7 @@ public class AddProductToCartTest{
             driver.get("http://localhost:4200/login");
 
             // Step 2: Enter email and password
-            driver.findElement(By.cssSelector("input[placeholder='Enter your email']")).sendKeys("test@umich.edu");
+            driver.findElement(By.cssSelector("input[placeholder='Enter your email']")).sendKeys("student@umich.edu");
             driver.findElement(By.cssSelector("input[placeholder='Enter password']")).sendKeys("qwertY");
 
             // Step 3: Select role from dropdown
