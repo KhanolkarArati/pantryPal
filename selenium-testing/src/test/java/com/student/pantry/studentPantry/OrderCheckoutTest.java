@@ -32,7 +32,7 @@ public class OrderCheckoutTest {
 
 		// Step 2: Enter email and password
 		driver.findElement(By.cssSelector("input[placeholder='Enter your email']")).sendKeys("student@umich.edu");
-		driver.findElement(By.cssSelector("input[placeholder='Enter password']")).sendKeys("Abcd@12345");
+		driver.findElement(By.cssSelector("input[placeholder='Enter password']")).sendKeys("qwertY");
 
 		// Step 3: Select role from dropdown
 		Select roleDropdown = new Select(driver.findElement(By.tagName("select")));

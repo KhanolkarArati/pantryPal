@@ -1,3 +1,13 @@
+com\student\pantry\studentPantry\AddProductToCartTest.class
+com\student\pantry\studentPantry\NavigationTest.class
+com\student\pantry\studentPantry\ScreenshotUtil.class
+com\student\pantry\studentPantry\ViewCart.class
 com\student\pantry\studentPantry\DeleteProductTest.class
+com\student\pantry\studentPantry\OrderCheckoutTest.class
 com\student\pantry\studentPantry\UpdateProductTest.class
+com\student\pantry\studentPantry\ViewCartTest.class
+com\student\pantry\studentPantry\LoginPageTest.class
 com\student\pantry\studentPantry\AddProductTest.class
+com\student\pantry\studentPantry\LogoutTest.class
+com\student\pantry\studentPantry\RegistrationPageTest.class
+com\student\pantry\studentPantry\OrderHistoryTest.class
